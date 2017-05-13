@@ -1,5 +1,10 @@
 ﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
 ################################################################################
 
+/packages
+/Hackathon_2017.sln
+*.suo
+/HackathonVinci2/packages
 /HackathonVinci2/HackathonVinci2/bin
+/HackathonVinci2/HackathonVinci2/obj/Debug
