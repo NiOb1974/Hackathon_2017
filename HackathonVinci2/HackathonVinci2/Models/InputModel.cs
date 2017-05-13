@@ -9,7 +9,9 @@ namespace HackathonVinci2.Models
     {
         public Guid Id { get; private set; }
 
-        InputModel()
+        public string Profile { get; set; }
+
+        public InputModel()
         {
             this.Id = new Guid();
         }

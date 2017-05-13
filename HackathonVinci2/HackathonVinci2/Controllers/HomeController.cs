@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using HackathonVinci2.Fassade;
+using HackathonVinci2.Models;
 using System.Web.Mvc;
+using System.Data.SqlClient;
 
 namespace HackathonVinci2.Controllers
 {
@@ -14,6 +13,11 @@ namespace HackathonVinci2.Controllers
         }
         public ActionResult About()
         {
+            var dummyInputModel = new InputModel()
+            {
+                Profile = "Solarfarm"
+            };
+            EventHubClientFacade.SendObject(dummyInputModel);
             ViewBag.Message = "Your application description page.";
 
             return View();
