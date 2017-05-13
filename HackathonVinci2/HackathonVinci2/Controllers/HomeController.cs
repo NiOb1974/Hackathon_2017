@@ -1,11 +1,5 @@
-﻿using HackathonVinci2.Utils;
-using Microsoft.ServiceBus.Messaging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 using System.Web.Mvc;
-using System.Data.SqlClient;
 using HackathonVinci2.Models;
 using HackathonVinci2.Fassade;
 
@@ -20,7 +14,13 @@ namespace HackathonVinci2.Controllers
             return View(new InputModel());
         }
 
-
+        [HttpPost]
+        public RedirectResult Index(InputModel inputModel)
+        {
+            // Do something
+            EventHubClientFacade.SendObject(inputModel);
+            return Redirect("/Result/");
+        }
 
         public ActionResult About()
         {
