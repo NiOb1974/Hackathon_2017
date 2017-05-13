@@ -8,8 +8,8 @@ namespace HackathonVinci2.Fassade
     public static class EventHubClientFacade
     {
         private static EventHubClient eventHubClient = null;
-        private static string connectionString = "Endpoint=sb://vincihackathon.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=LcXXWFabXrUybMMSp5whCtvH0IKs8dHmjrwxFkzyQdg=";
-        private static string eventHubName = "innereventhub";
+        private static string connectionString = "Endpoint=sb://before.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=wiXmiv8Yl+Z2Loaaf0aZXl+yta20gMJwjZK0pVDv3VE=";
+        private static string eventHubName = "default";
 
         static EventHubClientFacade()
         {

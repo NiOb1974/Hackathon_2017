@@ -6,21 +6,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.SqlClient;
+using System;
 
 namespace HackathonVinci2.Controllers
 {
     public class HomeController : Controller
     {
+        Guid LastId = Guid.Empty;
+
         public ActionResult Index()
         {
-            return View();
+            return View(new InputModel());
         }
+
+
+
         public ActionResult About()
         {
-            var dummyInputModel = new InputModel()
-            {
-                Profile = "Solarfarm"
-            };
+            var dummyInputModel = new InputModel();
             EventHubClientFacade.SendObject(dummyInputModel);
             ViewBag.Message = "Your application description page.";
 
