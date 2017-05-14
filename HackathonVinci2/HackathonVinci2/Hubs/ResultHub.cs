@@ -6,9 +6,9 @@ using Microsoft.AspNet.SignalR;
 
 namespace HackathonVinci2.Hubs
 {
-    public class ResultHub : Hub
+    public class ChatHub : Hub
     {
-        public void Result(string results)
+        public void Send(string results)
         {
             Clients.All.addNewMessageToPage(results);
         }

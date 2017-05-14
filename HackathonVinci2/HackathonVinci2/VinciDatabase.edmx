@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EnergyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DATA">
+          <Key>
+            <PropertyRef Name="ASSET_ID" />
+            <PropertyRef Name="DATE" />
+          </Key>
+          <Property Name="ASSET_ID" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="DATE" Type="datetime" Nullable="false" />
+          <Property Name="OPERATING_HOURS" Type="decimal" Precision="12" Scale="3" />
+          <Property Name="INSTALLED_POWER" Type="decimal" Precision="12" Scale="3" />
+          <Property Name="WORK_AMOUNT" Type="decimal" Precision="12" Scale="3" />
+          <Property Name="ELECTRICITY_RATE" Type="decimal" Precision="12" Scale="3" />
+          <Property Name="ELECTRICITY_REVENUE" Type="decimal" Precision="12" Scale="3" />
+          <Property Name="CAPITAL_CHARGES" Type="decimal" Precision="12" Scale="3" />
+          <Property Name="C02_COSTS" Type="decimal" Precision="12" Scale="3" />
+          <Property Name="FUEL_COSTS" Type="decimal" Precision="12" Scale="3" />
+          <Property Name="ELECTRICITY_GENERATION_COSTS" Type="decimal" Precision="12" Scale="3" />
+          <Property Name="TOTAL_COSTS" Type="decimal" Precision="12" Scale="3" />
+          <Property Name="PROFITABILITIY" Type="decimal" Precision="12" Scale="3" />
+        </EntityType>
+        <EntityType Name="PRICES">
+          <Key>
+            <PropertyRef Name="DATE" />
+          </Key>
+          <Property Name="DATE" Type="datetime" Nullable="false" />
+          <Property Name="PRICE" Type="decimal" Precision="12" Scale="3" />
+        </EntityType>
+        <EntityContainer Name="EnergyModelStoreContainer">
+          <EntitySet Name="DATA" EntityType="Self.DATA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRICES" EntityType="Self.PRICES" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EnergyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DATA">
+          <Key>
+            <PropertyRef Name="ASSET_ID" />
+            <PropertyRef Name="DATE" />
+          </Key>
+          <Property Name="ASSET_ID" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OPERATING_HOURS" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="INSTALLED_POWER" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="WORK_AMOUNT" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="ELECTRICITY_RATE" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="ELECTRICITY_REVENUE" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="CAPITAL_CHARGES" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="C02_COSTS" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="FUEL_COSTS" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="ELECTRICITY_GENERATION_COSTS" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="TOTAL_COSTS" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="PROFITABILITIY" Type="Decimal" Precision="12" Scale="3" />
+        </EntityType>
+        <EntityType Name="PRICES">
+          <Key>
+            <PropertyRef Name="DATE" />
+          </Key>
+          <Property Name="DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PRICE" Type="Decimal" Precision="12" Scale="3" />
+        </EntityType>
+        <EntityContainer Name="EnergyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DATA" EntityType="Self.DATA" />
+          <EntitySet Name="PRICES" EntityType="Self.PRICES" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EnergyModelStoreContainer" CdmEntityContainer="EnergyEntities">
+          <EntitySetMapping Name="DATA">
+            <EntityTypeMapping TypeName="EnergyModel.DATA">
+              <MappingFragment StoreEntitySet="DATA">
+                <ScalarProperty Name="ASSET_ID" ColumnName="ASSET_ID" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="OPERATING_HOURS" ColumnName="OPERATING_HOURS" />
+                <ScalarProperty Name="INSTALLED_POWER" ColumnName="INSTALLED_POWER" />
+                <ScalarProperty Name="WORK_AMOUNT" ColumnName="WORK_AMOUNT" />
+                <ScalarProperty Name="ELECTRICITY_RATE" ColumnName="ELECTRICITY_RATE" />
+                <ScalarProperty Name="ELECTRICITY_REVENUE" ColumnName="ELECTRICITY_REVENUE" />
+                <ScalarProperty Name="CAPITAL_CHARGES" ColumnName="CAPITAL_CHARGES" />
+                <ScalarProperty Name="C02_COSTS" ColumnName="C02_COSTS" />
+                <ScalarProperty Name="FUEL_COSTS" ColumnName="FUEL_COSTS" />
+                <ScalarProperty Name="ELECTRICITY_GENERATION_COSTS" ColumnName="ELECTRICITY_GENERATION_COSTS" />
+                <ScalarProperty Name="TOTAL_COSTS" ColumnName="TOTAL_COSTS" />
+                <ScalarProperty Name="PROFITABILITIY" ColumnName="PROFITABILITIY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRICES">
+            <EntityTypeMapping TypeName="EnergyModel.PRICES">
+              <MappingFragment StoreEntitySet="PRICES">
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

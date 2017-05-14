@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using HackathonVinci2.Models;
 using HackathonVinci2.Fassade;
+using Newtonsoft.Json;
 
 namespace HackathonVinci2.Controllers
 {
@@ -15,27 +16,20 @@ namespace HackathonVinci2.Controllers
         }
 
         [HttpPost]
-        public RedirectResult Index(InputModel inputModel)
+        public ActionResult Index(InputModel inputModel)
         {
             // Do something
-            EventHubClientFacade.SendObject(inputModel);
-            return Redirect("/Result/");
+            var tmp = JsonConvert.SerializeObject(inputModel);
+            return RedirectToAction("Result", new { inputModel =tmp});
         }
-
-        public ActionResult About()
+        
+        public ActionResult Result(string inputModel)
         {
-            var dummyInputModel = new InputModel();
-            EventHubClientFacade.SendObject(dummyInputModel);
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var input = JsonConvert.DeserializeObject<InputModel>(inputModel);
+             EventHubClientFacade.SendObject(inputModel);
+            ResultModel model = Methods.fillmodel(input);
+            return View(model);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
