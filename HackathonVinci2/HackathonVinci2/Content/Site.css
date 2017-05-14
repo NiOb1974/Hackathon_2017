@@ -22,3 +22,13 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.jumbotron {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 2.1428571435;
+    color: inherit;
+    background-color: #E2DBD2;
+}

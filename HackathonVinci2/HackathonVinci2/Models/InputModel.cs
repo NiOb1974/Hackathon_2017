@@ -11,19 +11,19 @@ namespace HackathonVinci2.Models
     {
         public Guid Id { get; private set; }
 
-        [DisplayName("Amount of coal-fired power stations")]
+        [DisplayName("# Coal-fired power plant")]
         [Required]
         public int CoalSiteAmount { get; set; }
 
-        [DisplayName("Amount of solar power plants")]
+        [DisplayName("# Solar power plant")]
         [Required]
         public int SolarSiteAmount { get; set; }
 
-        [DisplayName("Amount of wind power stations")]
+        [DisplayName("# Wind turbines")]
         [Required]
         public int WindSiteAmount { get; set; }
 
-        [DisplayName("Time span of prediction (in months)")]
+        [DisplayName("Period of prediction (in months)")]
         [DataType(DataType.Duration)]
         [Required]
         public int Duration { get; set; }

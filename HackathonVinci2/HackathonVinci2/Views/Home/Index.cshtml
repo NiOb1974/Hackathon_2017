@@ -1,16 +1,20 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Energy Mix";
 }
 @model HackathonVinci2.Models.InputModel
 
 <div class="jumbotron">
-    <h1>Energy Mix</h1>
-    <p class="lead">An OMEXON ToolCO²</p>
+    <!--
+        <h1>Energy Mix</h1>
+    <p class="lead">An OMEXON Tool</p>
+        -->
+    <p><center><img src="~/Content/EnergyMix.png" /></center></p>
     <p><a href="http://www.omexom.de/" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    
 </div>
 
 <div class="well">
-    Please specify the count of specific asset types, and also your wanted prediction time range.
+    Please specify the count of specific asset types and also your desired prediction time range.
 </div>
 <form method="post">
     <div class="form-group">
@@ -40,8 +44,8 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <input type="submit" class="btn btn-lg btn-default" />
-                <input type="reset" class="btn btn-lg" />
+                <input type="submit" value="Calculate" class="btn btn-lg btn-default" />
+                <input type="reset" value="Reset" class="btn btn-lg" />
             </div>
         </div>
     </div>
